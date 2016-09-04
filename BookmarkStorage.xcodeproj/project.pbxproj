@@ -8,12 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		5FEA5A471D7CA2B900802B18 /* BookmarkStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FEA5A451D7CA2B900802B18 /* BookmarkStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5FEA5A5A1D7CA35600802B18 /* URLAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEA5A591D7CA35600802B18 /* URLAccess.swift */; };
+		5FEA5A5C1D7CA39600802B18 /* BookmarkStorageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEA5A5B1D7CA39600802B18 /* BookmarkStorageDelegate.swift */; };
+		5FEA5A5E1D7CA3BA00802B18 /* UserDefaultsBookmarkStorageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEA5A5D1D7CA3B900802B18 /* UserDefaultsBookmarkStorageDelegate.swift */; };
+		5FEA5A601D7CA3D000802B18 /* BookmarkStorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEA5A5F1D7CA3D000802B18 /* BookmarkStorageError.swift */; };
+		5FEA5A621D7CA3F600802B18 /* BookmarkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEA5A611D7CA3F600802B18 /* BookmarkStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5FEA5A421D7CA2B900802B18 /* BookmarkStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BookmarkStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FEA5A451D7CA2B900802B18 /* BookmarkStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookmarkStorage.h; sourceTree = "<group>"; };
 		5FEA5A461D7CA2B900802B18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FEA5A591D7CA35600802B18 /* URLAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLAccess.swift; sourceTree = "<group>"; };
+		5FEA5A5B1D7CA39600802B18 /* BookmarkStorageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkStorageDelegate.swift; sourceTree = "<group>"; };
+		5FEA5A5D1D7CA3B900802B18 /* UserDefaultsBookmarkStorageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsBookmarkStorageDelegate.swift; sourceTree = "<group>"; };
+		5FEA5A5F1D7CA3D000802B18 /* BookmarkStorageError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkStorageError.swift; sourceTree = "<group>"; };
+		5FEA5A611D7CA3F600802B18 /* BookmarkStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +58,11 @@
 			children = (
 				5FEA5A451D7CA2B900802B18 /* BookmarkStorage.h */,
 				5FEA5A461D7CA2B900802B18 /* Info.plist */,
+				5FEA5A591D7CA35600802B18 /* URLAccess.swift */,
+				5FEA5A5B1D7CA39600802B18 /* BookmarkStorageDelegate.swift */,
+				5FEA5A5D1D7CA3B900802B18 /* UserDefaultsBookmarkStorageDelegate.swift */,
+				5FEA5A5F1D7CA3D000802B18 /* BookmarkStorageError.swift */,
+				5FEA5A611D7CA3F600802B18 /* BookmarkStore.swift */,
 			);
 			path = BookmarkStorage;
 			sourceTree = "<group>";
@@ -96,6 +111,7 @@
 					5FEA5A411D7CA2B900802B18 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = SJK358RN87;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -132,6 +148,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FEA5A621D7CA3F600802B18 /* BookmarkStore.swift in Sources */,
+				5FEA5A5C1D7CA39600802B18 /* BookmarkStorageDelegate.swift in Sources */,
+				5FEA5A5E1D7CA3BA00802B18 /* UserDefaultsBookmarkStorageDelegate.swift in Sources */,
+				5FEA5A601D7CA3D000802B18 /* BookmarkStorageError.swift in Sources */,
+				5FEA5A5A1D7CA35600802B18 /* URLAccess.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +258,7 @@
 		5FEA5A4B1D7CA2B900802B18 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -251,6 +273,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.manuscripts.BookmarkStorage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -258,6 +281,7 @@
 		5FEA5A4C1D7CA2B900802B18 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -295,6 +319,7 @@
 				5FEA5A4C1D7CA2B900802B18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
