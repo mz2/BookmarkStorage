@@ -170,7 +170,8 @@ public struct BookmarkStore {
     
     public func promptUserForSecurityScopedAccess(toURL URL:URL,
                                            withTitle title:String,
-                                           message:String) throws -> SecurityScopeAccessOutcome
+                                           message:String,
+                                           prompt:String = "Choose") throws -> SecurityScopeAccessOutcome
     {
         var isProbablyADirectory:ObjCBool = false
         let path = URL.path
@@ -183,13 +184,12 @@ public struct BookmarkStore {
         
         let panel = NSOpenPanel()
         panel.title = title
-        panel.prompt = "Choose"
+        panel.prompt = prompt
         
         panel.message =
             message
                 .replacingOccurrences(of:"${filename}", with: URL.lastPathComponent)
                 .replacingOccurrences(of:"${likelyFileKind}", with: isProbablyADirectory.boolValue ? "folder" : "file")
-                .replacingOccurrences(of:"${defaultButtonTitle}", with:panel.prompt)
         
         panel.canChooseFiles = true
         panel.canChooseDirectories = true
@@ -250,9 +250,10 @@ public struct BookmarkStore {
     }
     
     /** Read from, or write to, given URLs with security-scoped access. */
-    public func accessURLs(URLAccessObjects:[URLAccess],
+    public func accessURLs(_ URLAccessObjects:[URLAccess],
                            withUserPromptTitle openPanelTitle:String,
                            description openPanelDescription:String,
+                           prompt:String,
                            options:URLAccessOptions,
                            accessHandler:URLAccessHandler) throws {
         
@@ -274,7 +275,8 @@ public struct BookmarkStore {
         for URL in URLsToBookmark {
             let result = try self.promptUserForSecurityScopedAccess(toURL: URL,
                                                                     withTitle: openPanelTitle,
-                                                                    message: openPanelDescription)
+                                                                    message: openPanelDescription,
+                                                                    prompt:prompt)
             
             switch result {
             case .success(let bookmarkData):
