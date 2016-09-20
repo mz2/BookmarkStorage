@@ -65,4 +65,5 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
->>>>>>> b8134ddace08f2b863014b10633b823d219f3006
+
+*.xcuserdatad
