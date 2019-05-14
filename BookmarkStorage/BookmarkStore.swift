@@ -82,7 +82,7 @@ public struct BookmarkStore {
         let groupedURLs = self.URLsGroupedByAbsoluteParentURLStrings(URLs: inaccessibleURLs)
         
         // TODO: should filter out URLs that are contained by other URLs in the array
-        return groupedURLs.flatMap { (absoluteParentURLString, URLs) -> URL? in
+        return groupedURLs.compactMap { (absoluteParentURLString, URLs) -> URL? in
             // If there are multiple URLs to access in a common parent folder,
             // we'll request access for that folder
             if (alwaysAccessParentURL || URLs.count > 1) {
@@ -214,7 +214,7 @@ public struct BookmarkStore {
         repeat {
             let result = panel.runModal()
             
-            if result != NSModalResponseStop {
+            if result != NSApplication.ModalResponse.stop {
                 return .cancelled
             }
             
