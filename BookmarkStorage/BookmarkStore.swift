@@ -66,7 +66,7 @@ public struct BookmarkStore {
         throws -> [URL]
     {
         let inaccessibleURLs = URLs.filter { URL in
-            return self.knownAccessibleDirectoryURLs.index { accessibleURL in
+            return self.knownAccessibleDirectoryURLs.firstIndex { accessibleURL in
                 return URL.path.hasPrefix(accessibleURL.path)
                 } != nil
         }
