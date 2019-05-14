@@ -62,7 +62,7 @@ $ git submodule add https://github.com/mz2/BookmarkStorage.git
 
 #### USAGE
 
-Adapting from a test included in the test suite for the framework, here's how you can use Carpaccio:
+Adapting from a test included in the test suite for the framework, here's how you can use BookmarkStorage:
 
 1. Construct a `BookmarkStore`:
 
