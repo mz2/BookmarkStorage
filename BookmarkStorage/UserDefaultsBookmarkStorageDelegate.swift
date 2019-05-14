@@ -11,7 +11,10 @@ import Foundation
 public struct UserDefaultsBookmarkStorageDelegate:BookmarkStorageDelegate {
     
     public static let UserDefaultsKey:String = "UserDefaultsBookmarkStoreAllBookmarks"
-    
+	
+	
+	public init() {}
+
     public func allBookmarkDataByAbsoluteURLString() throws -> [String:Data] {
         guard let d = UserDefaults.standard.object(forKey: type(of: self).UserDefaultsKey) as? [String:Data] else {
             throw BookmarkStorageError.noBookmarkDataWhatsoeverStored

@@ -15,7 +15,11 @@ public struct BookmarkStore {
     static let defaultStore:BookmarkStore = BookmarkStore(delegate:UserDefaultsBookmarkStorageDelegate())
     
     private(set) public var delegate:BookmarkStorageDelegate
-    
+	
+	
+	public init(delegate: BookmarkStorageDelegate) {
+		self.delegate = delegate
+	}
     
     /** Return dictionary with parent URL absolute strings as keys, and arrays of URLs as values. */
     private static func URLsGroupedByAbsoluteParentURLStrings(URLs:[URL]) -> [String:[URL]] {
