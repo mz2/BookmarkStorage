@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3DECD402228B3EDA00A24689 /* DEVELOPMENT_TEAM.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3DECD400228B3EDA00A24689 /* DEVELOPMENT_TEAM.xcconfig */; };
+		3DECD403228B3EDA00A24689 /* Shared.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3DECD401228B3EDA00A24689 /* Shared.xcconfig */; };
 		5FEA5A471D7CA2B900802B18 /* BookmarkStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FEA5A451D7CA2B900802B18 /* BookmarkStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FEA5A5A1D7CA35600802B18 /* URLAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEA5A591D7CA35600802B18 /* URLAccess.swift */; };
 		5FEA5A5C1D7CA39600802B18 /* BookmarkStorageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEA5A5B1D7CA39600802B18 /* BookmarkStorageDelegate.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3DECD400228B3EDA00A24689 /* DEVELOPMENT_TEAM.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = DEVELOPMENT_TEAM.xcconfig; sourceTree = "<group>"; };
+		3DECD401228B3EDA00A24689 /* Shared.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
 		5FEA5A421D7CA2B900802B18 /* BookmarkStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BookmarkStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FEA5A451D7CA2B900802B18 /* BookmarkStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookmarkStorage.h; sourceTree = "<group>"; };
 		5FEA5A461D7CA2B900802B18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,11 +41,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DECD3FF228B3EDA00A24689 /* Xcode-config */ = {
+			isa = PBXGroup;
+			children = (
+				3DECD400228B3EDA00A24689 /* DEVELOPMENT_TEAM.xcconfig */,
+				3DECD401228B3EDA00A24689 /* Shared.xcconfig */,
+			);
+			path = "Xcode-config";
+			sourceTree = "<group>";
+		};
 		5FEA5A381D7CA2B900802B18 = {
 			isa = PBXGroup;
 			children = (
 				5FEA5A441D7CA2B900802B18 /* BookmarkStorage */,
 				5FEA5A431D7CA2B900802B18 /* Products */,
+				3DECD3FF228B3EDA00A24689 /* Xcode-config */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,7 +124,6 @@
 				TargetAttributes = {
 					5FEA5A411D7CA2B900802B18 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = SJK358RN87;
 						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
@@ -138,6 +151,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DECD402228B3EDA00A24689 /* DEVELOPMENT_TEAM.xcconfig in Resources */,
+				3DECD403228B3EDA00A24689 /* Shared.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,12 +290,12 @@
 		};
 		5FEA5A4B1D7CA2B900802B18 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DECD401228B3EDA00A24689 /* Shared.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = SJK358RN87;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -298,12 +313,12 @@
 		};
 		5FEA5A4C1D7CA2B900802B18 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DECD401228B3EDA00A24689 /* Shared.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = SJK358RN87;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
