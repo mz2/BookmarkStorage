@@ -15,7 +15,11 @@ public struct BookmarkStore {
     static let defaultStore:BookmarkStore = BookmarkStore(delegate:UserDefaultsBookmarkStorageDelegate())
     
     private(set) public var delegate:BookmarkStorageDelegate
-    
+	
+	
+	public init(delegate: BookmarkStorageDelegate) {
+		self.delegate = delegate
+	}
     
     /** Return dictionary with parent URL absolute strings as keys, and arrays of URLs as values. */
     private static func URLsGroupedByAbsoluteParentURLStrings(URLs:[URL]) -> [String:[URL]] {
@@ -66,9 +70,15 @@ public struct BookmarkStore {
         throws -> [URL]
     {
         let inaccessibleURLs = URLs.filter { URL in
-            return self.knownAccessibleDirectoryURLs.index { accessibleURL in
-                return URL.path.hasPrefix(accessibleURL.path)
-                } != nil
+			let knownURL = self.knownAccessibleDirectoryURLs.firstIndex { accessibleURL in
+				let knownPath = URL.path
+				let accessiblePath = accessibleURL.path
+				let isKnown = knownPath.hasPrefix(accessiblePath)
+				
+				return isKnown
+			}
+			
+            return knownURL == nil
         }
         
         if inaccessibleURLs.count == 0 {
@@ -82,7 +92,7 @@ public struct BookmarkStore {
         let groupedURLs = self.URLsGroupedByAbsoluteParentURLStrings(URLs: inaccessibleURLs)
         
         // TODO: should filter out URLs that are contained by other URLs in the array
-        return groupedURLs.flatMap { (absoluteParentURLString, URLs) -> URL? in
+        return groupedURLs.compactMap { (absoluteParentURLString, URLs) -> URL? in
             // If there are multiple URLs to access in a common parent folder,
             // we'll request access for that folder
             if (alwaysAccessParentURL || URLs.count > 1) {
@@ -214,7 +224,7 @@ public struct BookmarkStore {
         repeat {
             let result = panel.runModal()
             
-            if result != NSModalResponseStop {
+            if result != .OK {
                 return .cancelled
             }
             

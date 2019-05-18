@@ -67,3 +67,7 @@ fastlane/screenshots
 fastlane/test_output
 
 *.xcuserdatad
+
+
+# User-specific xcconfig files
+Xcode-config/DEVELOPMENT_TEAM.xcconfig
