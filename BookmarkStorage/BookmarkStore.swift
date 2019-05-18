@@ -70,9 +70,15 @@ public struct BookmarkStore {
         throws -> [URL]
     {
         let inaccessibleURLs = URLs.filter { URL in
-            return self.knownAccessibleDirectoryURLs.firstIndex { accessibleURL in
-                return URL.path.hasPrefix(accessibleURL.path)
-                } != nil
+			let knownURL = self.knownAccessibleDirectoryURLs.firstIndex { accessibleURL in
+				let knownPath = URL.path
+				let accessiblePath = accessibleURL.path
+				let isKnown = knownPath.hasPrefix(accessiblePath)
+				
+				return isKnown
+			}
+			
+            return knownURL == nil
         }
         
         if inaccessibleURLs.count == 0 {
@@ -218,7 +224,7 @@ public struct BookmarkStore {
         repeat {
             let result = panel.runModal()
             
-            if result != NSApplication.ModalResponse.stop {
+            if result != .OK {
                 return .cancelled
             }
             
